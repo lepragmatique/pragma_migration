@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.util.logging.Logger;
 
 /**
  *
@@ -17,22 +18,20 @@ import jakarta.persistence.Table;
  */
 
 @Entity
-@Table(name = "Role")
-public class Role {
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   @Column(name = "role_id", updatable = false, nullable = false)
+@Table(name = "CategorieProduit")
+public class CategorieProduit {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Categorie_id", updatable = false, nullable = false)
     private Long id;
 	
-    @Column(name="role_name", updatable = true, nullable = false)
+    @Column(name="CategorieProduit", updatable = true, nullable = false)
     private String name;
 
-    public Role(String name) {
+    public CategorieProduit(Long id, String name) {
+        this.id = id;
         this.name = name;
-    }
-   
-    
-    public Role() {
     }
 
     public Long getId() {
@@ -42,6 +41,11 @@ public class Role {
     public String getName() {
         return name;
     }
+    private static final Logger LOG = Logger.getLogger(CategorieProduit.class.getName());
+
+    public static Logger getLOG() {
+        return LOG;
+    }
 
     public void setId(Long id) {
         this.id = id;
@@ -50,7 +54,6 @@ public class Role {
     public void setName(String name) {
         this.name = name;
     }
-    
     
     
 }

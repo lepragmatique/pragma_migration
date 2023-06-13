@@ -16,7 +16,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
-import java.util.Collection;
+import java.util.List;
 import java.util.logging.Logger;
 
 
@@ -52,10 +52,10 @@ public class Users {
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id")
     , inverseJoinColumns = @JoinColumn(name = "role_id"))
     
-    private Collection<Role> roles;
+    private List<Role> roles;
 
-    public Users(Long id, String firstName, String lastName, String email, String password, String adresse, Collection<Role> roles) {
-        this.id = id;
+    public Users(String firstName, String lastName, String email, String password, String adresse, List<Role> roles) {
+       
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -88,7 +88,7 @@ public class Users {
         return adresse;
     }
     
-    public Collection<Role> getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 
@@ -116,7 +116,7 @@ public class Users {
         this.adresse = adresse;
     }
 
-    public void setRoles(Collection<Role> roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
 

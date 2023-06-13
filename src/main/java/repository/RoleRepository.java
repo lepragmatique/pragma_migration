@@ -4,13 +4,13 @@
  */
 package repository;
 
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
+import com.example.projetH2Flyway.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author joelx
  */
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface RoleRepository extends JpaRepository<Role,Long> {
     
 }
